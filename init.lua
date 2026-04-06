@@ -10,6 +10,9 @@ require('config.keymaps')
 
 -- Load plugins (must be after options/keymaps)
 require('config.plugins')
+require('plugins.mason').setup()
+require('plugins.completion').setup()
+require('plugins.lsp').setup()
 
 -- Load layouts
 require('config.layouts')

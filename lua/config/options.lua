@@ -26,3 +26,15 @@ vim.opt.timeoutlen = 300
 vim.opt.clipboard = 'unnamedplus'
 vim.opt.mouse = 'a'
 vim.opt.undofile = true
+
+-- Filetype detection for JavaScript/TypeScript
+vim.filetype.add({
+  extension = {
+    mts = "typescript",
+    cts = "typescript",
+  },
+  filename = {
+    ["dts.config.js"] = "typescript",
+    ["tsconfig.json"] = "jsonc",
+  },
+})

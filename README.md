@@ -6,7 +6,7 @@
 
 ```sh
 # Arch
-sudo pacman -S neovim-git wl-clipboard luarocks
+sudo pacman -S neovim-git wl-clipboard luarocks lazygit
 ```
 
 ### 安装配置
