@@ -36,6 +36,7 @@ M.config = function()
       "pyright",
       "tsserver",
       "clangd",
+      "js-debug",
       "prettier",
       "black",
       "ruff",

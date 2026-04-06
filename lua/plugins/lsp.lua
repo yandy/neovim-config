@@ -9,7 +9,7 @@ M.config_pyright = function()
 
   lspconfig.pyright.setup({
     on_attach = M.on_attach,
-    capabilities = M.capabilities,
+    capabilities = M.capabilities(),
     settings = {
       python = {
         pythonPath = "",
@@ -31,7 +31,7 @@ M.config_tsserver = function()
 
   lspconfig.tsserver.setup({
     on_attach = M.on_attach,
-    capabilities = M.capabilities,
+    capabilities = M.capabilities(),
     filetypes = {
       "javascript",
       "javascriptreact",
@@ -195,7 +195,13 @@ M.on_attach = function(client, bufnr)
 end
 
 -- Common capabilities for all LSP clients
-M.capabilities = require('blink.cmp').get_lsp_capabilities(vim.lsp.protocol.make_client_capabilities())
+M.capabilities = function()
+  local ok, blink = pcall(require, 'blink.cmp')
+  if ok then
+    return blink.get_lsp_capabilities(vim.lsp.protocol.make_client_capabilities())
+  end
+  return vim.lsp.protocol.make_client_capabilities()
+end
 
 -- Configure clangd language server (C/C++)
 M.config_clangd = function()
@@ -203,7 +209,7 @@ M.config_clangd = function()
 
   lspconfig.clangd.setup({
     on_attach = M.on_attach,
-    capabilities = M.capabilities,
+    capabilities = M.capabilities(),
     cmd = { "clangd" },
     filetypes = { "c", "cpp", "h", "hpp", "objc", "objcpp" },
     root_dir = function(fname)

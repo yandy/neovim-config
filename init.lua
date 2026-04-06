@@ -13,6 +13,9 @@ require('config.plugins')
 require('plugins.mason').setup()
 require('plugins.completion').setup()
 require('plugins.lsp').setup()
+require('plugins.dap').setup()
+require('plugins.ui').setup()
+require('plugins.treesitter').setup()
 
 -- Load layouts
 require('config.layouts')

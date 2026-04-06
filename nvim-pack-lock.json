@@ -52,6 +52,10 @@
       "rev": "a776085e04f7b15d0b59fae2244df07d98360ab4",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
+    "opencode.nvim": {
+      "rev": "fa0a495fa2c229115404cb3c1970578f9c6d2f76",
+      "src": "https://github.com/nickjvandyke/opencode.nvim"
+    },
     "snacks.nvim": {
       "rev": "ad9ede6a9cddf16cedbd31b8932d6dcdee9b716e",
       "src": "https://github.com/folke/snacks.nvim"

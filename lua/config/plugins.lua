@@ -17,4 +17,5 @@ vim.pack.add({
   { src = 'https://github.com/lukas-reineke/indent-blankline.nvim' },
   { src = 'https://github.com/nvim-lualine/lualine.nvim' },
   { src = 'https://github.com/cappyzawa/trim.nvim' },
+  { src = 'https://github.com/nickjvandyke/opencode.nvim' },
 })
