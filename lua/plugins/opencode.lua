@@ -63,8 +63,10 @@ function M.setup()
     return
   end
 
-  -- Setup opencode with config
-  opencode.setup(M.config)
+  -- Setup opencode with config (if available)
+  if type(opencode.setup) == "function" then
+    opencode.setup(M.config)
+  end
 
   -- Keymaps for opencode interactions
   -- <C-a>: Ask opencode about current context

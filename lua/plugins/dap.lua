@@ -54,6 +54,11 @@ M.config_python = function()
     return
   end
 
+  local dap_ok, dap = pcall(require, "dap")
+  if not dap_ok then
+    return
+  end
+
   -- Get mason debugpy path dynamically (avoid hardcoded paths)
   local mason_pkg_path = vim.fn.stdpath("data") .. "/mason/packages/debugpy"
 
@@ -130,7 +135,10 @@ end
 
 -- Configure codelldb adapter for C/C++ debugging
 M.config_codelldb = function()
-  local dap = require("dap")
+  local dap_ok, dap = pcall(require, "dap")
+  if not dap_ok then
+    return
+  end
 
   -- codelldb path from mason installation
   local codelldb_path = vim.fn.stdpath("data") .. "/mason/bin/codelldb"
@@ -188,7 +196,10 @@ end
 
 -- Configure JavaScript/TypeScript debugging (js-debug via mason)
 M.config_js_debug = function()
-  local dap = require("dap")
+  local dap_ok, dap = pcall(require, "dap")
+  if not dap_ok then
+    return
+  end
 
   -- js-debug adapter configuration
   dap.adapters.jsdebug = {
