@@ -1,3 +1,4 @@
-require("config.common")
-require("config.lazy")
-require("config.extra")
+require("config.options")
+require("config.keymaps")
+require("config.autocmds")
+require("config.lsp")
