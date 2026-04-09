@@ -32,12 +32,14 @@ vim.opt.mouse = 'a'
 -- Don't show the mode, since it's already in the status line
 vim.opt.showmode = false
 
--- Sync clipboard between OS and Neovim.
---  Schedule the setting after `UiEnter` because it can increase startup-time.
---  Remove this option if you want your OS clipboard to remain independent.
---  See `:help 'clipboard'`
 vim.schedule(function()
-  vim.opt.clipboard = 'unnamedplus'
+    -- Sync clipboard between OS and Neovim.
+    --  Schedule the setting after `UiEnter` because it can increase startup-time.
+    --  Remove this option if you want your OS clipboard to remain independent.
+    --  See `:help 'clipboard'`
+    vim.opt.clipboard = 'unnamedplus'
+    --  enable nvim.undotree
+    vim.cmd.packadd('nvim.undotree')
 end)
 
 -- Enable break indent
@@ -55,9 +57,6 @@ vim.opt.updatetime = 250
 
 -- Decrease mapped sequence wait time
 vim.opt.timeout = false
-
--- Displays which-key popup sooner
-vim.opt.timeoutlen = 300
 
 -- Configure how new splits should be opened
 vim.opt.splitright = true

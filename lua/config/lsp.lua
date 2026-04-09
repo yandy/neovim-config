@@ -7,7 +7,7 @@ vim.lsp.enable("clangd")
 vim.lsp.enable("ruff")
 vim.lsp.enable('ts_ls')
 vim.lsp.enable('rust_analyzer')
-
+vim.lsp.enable('tailwindcss')
 
 
 vim.api.nvim_create_autocmd("LspAttach", {
@@ -30,7 +30,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
         end
 
         -- [formatting]
-        vim.keymap.set("n", "<leader>lf", vim.lsp.buf.format)
+        vim.keymap.set("n", "<a-s-f>", vim.lsp.buf.format)
         if client and client.server_capabilities.documentFormattingProvider then
             vim.api.nvim_create_autocmd("BufWritePre", {
                 pattern = "*",

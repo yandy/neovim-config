@@ -8,6 +8,21 @@ require("snacks").setup({
         ui_select = true,
         matcher = { frecency = true, cwd_bonus = true, history_bonus = true },
         formatters = { icon_width = 3 },
+        --- for opencode
+        actions = {
+            opencode_send = function(...) return require("opencode").snacks_picker_send(...) end,
+        },
+        win = {
+            input = {
+                keys = {
+                    ["<c-e>t"] = { "tab", mode = { "i", "n" } },
+                    ["<c-e>s"] = { "edit_split", mode = { "i", "n" } },
+                    ["<c-e>v"] = { "edit_vsplit", mode = { "i", "n" } },
+                    --- for opencode
+                    ["<a-o>"] = { "opencode_send", mode = { "n", "i" } },
+                }
+            }
+        }
     },
     explorer = {},
     input = {},
@@ -39,24 +54,23 @@ require("snacks").setup({
     },
 })
 
-vim.keymap.set("n", "<leader>e", Snacks.explorer.open, { desc = "File Explorer" })
+vim.keymap.set("n", "<leader>e", function() Snacks.explorer.open() end, { desc = "File Explorer" })
 
-vim.keymap.set("n", "<leader><space>", Snacks.picker.smart, { desc = "Find content" })
-vim.keymap.set("n", "<leader>ff", Snacks.picker.files, { desc = "Smart find files" })
-vim.keymap.set("n", "<leader>fr", Snacks.picker.recent, { desc = "Find recent files" })
-vim.keymap.set("n", "<leader>fb", Snacks.picker.buffers, { desc = "Find content" })
-vim.keymap.set("n", "<leader>fg", Snacks.picker.grep, { desc = "Find content" })
-vim.keymap.set("n", "<leader>fh", Snacks.picker.help, { desc = "Find content" })
+vim.keymap.set("n", "<leader><space>", function() Snacks.picker.smart() end, { desc = "Find content" })
+vim.keymap.set("n", "<leader>ff", function() Snacks.picker.files() end, { desc = "Smart find files" })
+vim.keymap.set("n", "<leader>fr", function() Snacks.picker.recent() end, { desc = "Find recent files" })
+vim.keymap.set("n", "<leader>fb", function() Snacks.picker.buffers() end, { desc = "Find content" })
+vim.keymap.set("n", "<leader>fg", function() Snacks.picker.grep() end, { desc = "Find content" })
+vim.keymap.set("n", "<leader>fh", function() Snacks.picker.help() end, { desc = "Find content" })
 
-vim.keymap.set("n", "<leader>tt", function() Snacks.terminal() end, { desc = "Open Terminal" })
-vim.keymap.set("t", "<leader>tn", [[<C-\><C-n>]], { desc = "Return to Normal Terminal" })
+vim.keymap.set({ "n", "t" }, "<c-`>", function() Snacks.terminal.toggle() end, { desc = "Toggle Terminal" })
 
 vim.keymap.set("n", "gd", function() Snacks.picker.lsp_definitions() end, { desc = "Goto Definition" })
 vim.keymap.set("n", "gr", function() Snacks.picker.lsp_references() end, { desc = "References", nowait = true })
 vim.keymap.set("n", "gi", function() Snacks.picker.lsp_implementations() end, { desc = "Goto Implementation" })
 vim.keymap.set("n", "gy", function() Snacks.picker.lsp_type_definitions() end, { desc = "Goto T[y]pe Definition" })
-vim.keymap.set("n", "<leader>ss", function() Snacks.picker.lsp_symbols() end, { desc = "LSP Current Buffer Symbols" })
-vim.keymap.set("n", "<leader>sS", function() Snacks.picker.lsp_workspace_symbols() end,
+vim.keymap.set("n", "<leader>ls", function() Snacks.picker.lsp_symbols() end, { desc = "LSP Current Buffer Symbols" })
+vim.keymap.set("n", "<leader>lS", function() Snacks.picker.lsp_workspace_symbols() end,
     { desc = "LSP Workspace Symbols" })
 
 vim.keymap.set("n", "<leader>ld", function() Snacks.picker.diagnostics() end, { desc = "Document Diagnostics" })
