@@ -1,11 +1,16 @@
 {
   "plugins": {
+    "blink.cmp": {
+      "rev": "78336bc89ee5365633bcf754d93df01678b5c08f",
+      "src": "https://github.com/saghen/blink.cmp",
+      "version": "'v1.10.2'"
+    },
     "nvim-lspconfig": {
-      "rev": "fb5fa30626ae10f7f79f740059d3769993936ecb",
+      "rev": "c588db330592fa477a70d2fee6ba20a57194bdc3",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "opencode.nvim": {
-      "rev": "eb1be3208251a61d4a61fdd5870301003012ce50",
+      "rev": "6ed56733b19dce45d1f02abc34547cb21857ca95",
       "src": "https://github.com/nickjvandyke/opencode.nvim"
     },
     "snacks.nvim": {

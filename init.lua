@@ -5,3 +5,4 @@ require("config.lsp")
 
 require("plugins.snacks")
 require("plugins.opencode")
+require("plugins.cmp")

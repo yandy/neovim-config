@@ -17,3 +17,11 @@ uv tool install basedpyright
 cmd  :options
 
 <c-q> block visual
+
+<a-h> toggle hidden files
+<a-i> toggle ignored files
+
+
+zR open all folds
+zM close all folds
+za toggle fold
