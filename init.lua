@@ -3,6 +3,8 @@ require("config.keymaps")
 require("config.autocmds")
 require("config.lsp")
 
+require("plugins.ui")
 require("plugins.snacks")
 require("plugins.opencode")
 require("plugins.cmp")
+require("plugins.debug")
