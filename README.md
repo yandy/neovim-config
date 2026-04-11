@@ -10,7 +10,7 @@ git clone https://github.com/yandy/neovim-config.git ~/.config/nvim
 
 bun add -g typescript-language-server typescript @tailwindcss/language-server
 uv tool install basedpyright debugpy
-sudo pacman -S neovim lazygit wl-clipboard luarocks tree-sitter-grammars lua-language-server
+sudo pacman -S neovim lazygit wl-clipboard luarocks tree-sitter-grammars lua-language-server lldb
 
 # invoke nvim and wait for install completion
 
@@ -31,6 +31,7 @@ sudo pacman -S neovim lazygit wl-clipboard luarocks tree-sitter-grammars lua-lan
 `[Visual]~` swap cursor character(for normal mode)/highlighted text(for visual mode) upper/lower case
 `[Visual]r{w}` change cursor character(for normal mode)/highlighted text(for visual mode) to `w`
 `{Visual}["x]y` Yank the highlighted text [into register x]
+`{Visual}gc` toggle comment on highlighted text
 
 **folding**
 `zR` open all folds

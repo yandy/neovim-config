@@ -17,7 +17,7 @@ vim.opt.shiftwidth = 4
 -- Make line numbers default
 vim.opt.relativenumber = true
 vim.opt.number = true
-vim.opt.signcolumn = 'no'
+vim.opt.signcolumn = 'auto'
 vim.opt.numberwidth = 4
 
 -- enable soft line wrap
