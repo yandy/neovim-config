@@ -75,8 +75,7 @@ vim.api.nvim_create_autocmd("FileType", {
         -- cpp
         dap.adapters.lldb = {
             type = 'executable',
-            command = '/usr/bin/lldb-dap', -- adjust as needed, must be absolute path
-            name = 'lldb'
+            command = 'lldb-dap',
         }
 
         dap.configurations.cpp = {
@@ -105,6 +104,51 @@ vim.api.nvim_create_autocmd("FileType", {
                 -- runInTerminal = false,
             },
         }
+
+        -- javascript
+        dap.adapters["js-debug"] = {
+            type = "server",
+            host = "localhost",
+            port = "${port}",
+            executable = {
+                command = "bun",
+                args = { vim.fn.stdpath("config") .. "/vendor/js-debug/src/dapDebugServer.js", "${port}" },
+            }
+        }
+
+        for _, language in ipairs({ "typescript", "javascript" }) do
+            dap.configurations[language] = {
+                {
+                    type = "js-debug",
+                    request = "launch",
+                    name = "file",
+                    runtimeExecutable = "bun",
+                    program = "${file}",
+                    args = function()
+                        local args_string = vim.fn.input('Arguments: ')
+                        local utils = require("dap.utils")
+                        if utils.splitstr and vim.fn.has("nvim-0.10") == 1 then
+                            return utils.splitstr(args_string)
+                        end
+                        return vim.split(args_string, " +")
+                    end,
+                },
+                {
+                    type = "js-debug",
+                    request = "launch",
+                    name = "cmd",
+                    command = function()
+                        return vim.fn.input('command: ', "bun ")
+                    end
+                },
+                {
+                    type = "js-debug",
+                    request = "launch",
+                    name = "browser",
+                    url = "http://localhost:3000/"
+                }
+            }
+        end
 
         -- Custom breakpoint icons
         vim.fn.sign_define('DapBreakpoint',

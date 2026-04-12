@@ -29,29 +29,6 @@ require("snacks").setup({
     terminal = {},
     lazygit = {},
     image = {},
-    styles = {
-        terminal = {
-            bo = {
-                filetype = "snacks_terminal",
-            },
-            wo = {},
-            stack = true,
-            keys = {
-                q = "hide",
-                gf = function(self)
-                    local f = vim.fn.findfile(vim.fn.expand("<cfile>"), "**")
-                    if f == "" then
-                        Snacks.notify.warn("No file under cursor")
-                    else
-                        self:hide()
-                        vim.schedule(function()
-                            vim.cmd("e " .. f)
-                        end)
-                    end
-                end,
-            },
-        },
-    },
 })
 
 vim.keymap.set("n", "<leader>e", function() Snacks.explorer.open() end, { desc = "File Explorer" })

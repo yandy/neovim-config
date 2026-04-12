@@ -54,7 +54,8 @@ sudo pacman -S neovim lazygit wl-clipboard luarocks tree-sitter-grammars lua-lan
 `]]`/`[[` [count] sections forward/backward
 `<c-o>` Go to [count] Older cursor position in jump list
 `<c-i>` Go to [count] newer cursor position in jump list
-
+`]b` next buffer
+`[b` prev buffer
 
 #### snacks
 
@@ -74,45 +75,9 @@ sudo pacman -S neovim lazygit wl-clipboard luarocks tree-sitter-grammars lua-lan
 <c-f> scroll documentation down
 <c-b> scroll documentation up
 
-
 ## reference
 
-cmd  :options
-
-[snacks reference](https://github.com/folke/snacks.nvim/blob/main/docs/explorer.md)
-`{count}%` go to line {count}.
-`gg` begin of current buffer
-`G` end of current buffer
-`0` begin of line
-`$` end of line
-`^` first non-blank of line
-`<c-f>`/`<c-b>` page down/up
-`<c-d>`/`<c-u>` half page down/up
-`e`/`b` [count] forward/backward word
-`}`/`{` [count] paragraphs forward/backward
-`]]`/`[[` [count] sections forward/backward
-
-
-#### snacks
-
-`<a-h>` toggle hidden files
-`<a-i>` toggle ignored files
-
-**explorer**
-
-
-#### cmp
-
-`<c-n>` select next
-`<c-p>` select previous
-`<tab>` select and accept
-`<c-e>` cancle/hidden
-`<c-f>` scroll documentation down
-`<c-b>` scroll documentation up
-
-
-## reference
-
-cmd  :options
+cmd :options
+cmd :help dap-launch.json
 
 [snacks reference](https://github.com/folke/snacks.nvim/blob/main/docs/explorer.md)
