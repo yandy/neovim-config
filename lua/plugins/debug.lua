@@ -30,7 +30,49 @@ vim.api.nvim_create_autocmd("FileType", {
         dapui.setup()
 
         -- language configs
+        -- python
         require("dap-python").setup("uv")
+        table.insert(dap.configurations.python, 2, {
+            type = 'python',
+            request = 'launch',
+            name = 'fastapi',
+
+            module = "fastapi",
+            args = { "dev", },
+            cwd = '${workspaceFolder}'
+
+            -- Other options:
+            -- See https://github.com/microsoft/debugpy/wiki/Debug-configuration-settings
+        })
+        table.insert(dap.configurations.python, 2, {
+            type = 'python',
+            request = 'launch',
+            name = 'module:args',
+
+            module = function()
+                return vim.fn.input('module:')
+            end,
+            args = function()
+                local args_string = vim.fn.input('arguments: ')
+                local utils = require("dap.utils")
+                if utils.splitstr and vim.fn.has("nvim-0.10") == 1 then
+                    return utils.splitstr(args_string)
+                end
+                return vim.split(args_string, " +")
+            end
+        })
+        table.insert(dap.configurations.python, 2, {
+            type = 'python',
+            request = 'launch',
+            name = 'module',
+
+            module = function()
+                return vim.fn.input('module:')
+            end,
+            args = {}
+        })
+
+        -- cpp
         dap.adapters.lldb = {
             type = 'executable',
             command = '/usr/bin/lldb-dap', -- adjust as needed, must be absolute path
