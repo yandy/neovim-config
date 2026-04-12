@@ -61,15 +61,16 @@ vim.keymap.set({ "n", "t" }, "<c-`>", function() Snacks.terminal.toggle() end, {
 vim.keymap.set("n", "<leader>,", function() Snacks.lazygit() end, { desc = "Toggle lazygit" })
 
 vim.keymap.set("n", "<leader><space>", function() Snacks.picker.smart() end, { desc = "Smart find files" })
+vim.keymap.set("n", "<leader>/", function() Snacks.picker.grep() end, { desc = "grep files" })
 vim.keymap.set("n", "<leader>ff", function() Snacks.picker.files() end, { desc = "find files" })
-vim.keymap.set("n", "<leader>f/", function() Snacks.picker.grep() end, { desc = "grep files" })
 vim.keymap.set("n", "<leader>fb", function() Snacks.picker.buffers() end, { desc = "find buffers" })
-vim.keymap.set("n", "<leader>fc", function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end,
-    { desc = "find config file" })
 vim.keymap.set("n", "<leader>fr", function() Snacks.picker.recent() end, { desc = "find recent files" })
-vim.keymap.set("n", "<leader>fg", function() Snacks.picker.git_files() end, { desc = "find git files" })
+vim.keymap.set("n", "<leader>fg", function() Snacks.picker.git_log() end, { desc = "find git log" })
+
 vim.keymap.set("n", "<leader>fh", function() Snacks.picker.help() end, { desc = "find help" })
 vim.keymap.set("n", "<leader>fk", function() Snacks.picker.keymaps() end, { desc = "find keymaps" })
+vim.keymap.set("n", "<leader>fc", function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end,
+    { desc = "find config file" })
 
 vim.keymap.set("n", "gd", function() Snacks.picker.lsp_definitions() end, { desc = "goto definition" })
 vim.keymap.set("n", "gr", function() Snacks.picker.lsp_references() end, { desc = "references", nowait = true })
