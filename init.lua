@@ -1,10 +1,8 @@
-require("config.options")
-require("config.keymaps")
-require("config.autocmds")
-require("config.lsp")
+require("conf")
 
 require("plugins.ui")
+require("plugins.lsp")
 require("plugins.snacks")
-require("plugins.opencode")
 require("plugins.cmp")
 require("plugins.debug")
+require("plugins.opencode")

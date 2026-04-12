@@ -51,6 +51,7 @@ vim.opt.undofile = true
 -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
+vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 -- Decrease update time
 vim.opt.updatetime = 250
@@ -80,8 +81,10 @@ vim.opt.winborder = 'single'
 -- Required for opencode `opts.events.reload`
 vim.opt.autoread = true
 
--- Big file limit
-vim.g.bigfile_size = 1024 * 1024 * 1.5 -- 1.5 MB
-
 -- folding
-require 'config.folding'
+vim.o.foldcolumn = '1' -- '0' is not bad
+vim.o.foldlevel = 99
+vim.o.foldlevelstart = 99
+vim.o.foldenable = true
+vim.o.foldmethod = 'syntax'
+vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]

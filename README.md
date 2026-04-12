@@ -52,6 +52,8 @@ sudo pacman -S neovim lazygit wl-clipboard luarocks tree-sitter-grammars lua-lan
 `e`/`b` [count] forward/backward word
 `}`/`{` [count] paragraphs forward/backward
 `]]`/`[[` [count] sections forward/backward
+`<c-o>` Go to [count] Older cursor position in jump list
+`<c-i>` Go to [count] newer cursor position in jump list
 
 
 #### snacks
