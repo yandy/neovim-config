@@ -8,7 +8,7 @@ vim.pack.add({
 
 vim.api.nvim_create_autocmd("FileType", {
     group = vim.api.nvim_create_augroup("SetupDebugging", { clear = true }),
-    pattern = { "python", "cpp", "c", "javascript", "typescript" },
+    pattern = { "python", "cpp", "c", "javascript", "javascriptreact", "typescript", "typescriptreact" },
     once = true,
     callback = function()
         local dap, dapui = require("dap"), require("dapui")
@@ -35,7 +35,7 @@ vim.api.nvim_create_autocmd("FileType", {
         table.insert(dap.configurations.python, {
             type = 'python',
             request = 'launch',
-            name = 'fastapi',
+            name = 'fastapi dev',
 
             module = "fastapi",
             args = { "dev", },
@@ -117,18 +117,8 @@ vim.api.nvim_create_autocmd("FileType", {
             dap.configurations[language] = {
                 {
                     type = "pwa-node",
-                    request = "launch",
-                    name = "file",
-                    runtimeExecutable = "bun",
-                    program = "${file}",
-                    args = function()
-                        local args_string = vim.fn.input('Arguments: ')
-                        local utils = require("dap.utils")
-                        if utils.splitstr and vim.fn.has("nvim-0.10") == 1 then
-                            return utils.splitstr(args_string)
-                        end
-                        return vim.split(args_string, " +")
-                    end,
+                    request = "attach",
+                    name = "attach",
                     sourceMaps = true,
                 },
                 {
@@ -141,6 +131,20 @@ vim.api.nvim_create_autocmd("FileType", {
                 }
             }
         end
+        table.insert(dap.configurations.javascript, {
+            type = "pwa-node",
+            request = "launch",
+            name = "file",
+            program = "${file}",
+            args = function()
+                local args_string = vim.fn.input('Arguments: ')
+                local utils = require("dap.utils")
+                if utils.splitstr and vim.fn.has("nvim-0.10") == 1 then
+                    return utils.splitstr(args_string)
+                end
+                return vim.split(args_string, " +")
+            end,
+        })
 
         -- Custom breakpoint icons
         vim.fn.sign_define('DapBreakpoint',
