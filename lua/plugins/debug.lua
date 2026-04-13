@@ -32,7 +32,7 @@ vim.api.nvim_create_autocmd("FileType", {
         -- language configs
         -- python
         require("dap-python").setup("uv")
-        table.insert(dap.configurations.python, 2, {
+        table.insert(dap.configurations.python, {
             type = 'python',
             request = 'launch',
             name = 'fastapi',
@@ -43,33 +43,6 @@ vim.api.nvim_create_autocmd("FileType", {
 
             -- Other options:
             -- See https://github.com/microsoft/debugpy/wiki/Debug-configuration-settings
-        })
-        table.insert(dap.configurations.python, 2, {
-            type = 'python',
-            request = 'launch',
-            name = 'module:args',
-
-            module = function()
-                return vim.fn.input('module:')
-            end,
-            args = function()
-                local args_string = vim.fn.input('arguments: ')
-                local utils = require("dap.utils")
-                if utils.splitstr and vim.fn.has("nvim-0.10") == 1 then
-                    return utils.splitstr(args_string)
-                end
-                return vim.split(args_string, " +")
-            end
-        })
-        table.insert(dap.configurations.python, 2, {
-            type = 'python',
-            request = 'launch',
-            name = 'module',
-
-            module = function()
-                return vim.fn.input('module:')
-            end,
-            args = {}
         })
 
         -- cpp
@@ -88,7 +61,14 @@ vim.api.nvim_create_autocmd("FileType", {
                 end,
                 cwd = '${workspaceFolder}',
                 stopOnEntry = false,
-                args = {},
+                args = function()
+                    local args_string = vim.fn.input('arguments: ')
+                    local utils = require("dap.utils")
+                    if utils.splitstr and vim.fn.has("nvim-0.10") == 1 then
+                        return utils.splitstr(args_string)
+                    end
+                    return vim.split(args_string, " +")
+                end,
 
                 -- 💀
                 -- if you change `runInTerminal` to true, you might need to change the yama/ptrace_scope setting:
@@ -133,7 +113,7 @@ vim.api.nvim_create_autocmd("FileType", {
             end
         end
 
-        for _, language in ipairs({ "typescript", "javascript" }) do
+        for _, language in ipairs({ "typescript", "typescriptreact", "javascript", "javascriptreact" }) do
             dap.configurations[language] = {
                 {
                     type = "pwa-node",
@@ -149,14 +129,7 @@ vim.api.nvim_create_autocmd("FileType", {
                         end
                         return vim.split(args_string, " +")
                     end,
-                },
-                {
-                    type = "pwa-node",
-                    request = "launch",
-                    name = "cmd",
-                    command = function()
-                        return vim.fn.input('command: ', "bun ")
-                    end,
+                    sourceMaps = true,
                 },
                 {
                     type = "pwa-msedge",
@@ -206,5 +179,6 @@ vim.api.nvim_create_autocmd("FileType", {
             local input = vim.fn.input 'Condition for breakpoint:'
             dap.set_breakpoint(input)
         end, { desc = 'DAP: Conditional Breakpoint' })
+        vim.keymap.set('n', '<leader>du', dapui.toggle, { desc = 'toggle dapui' })
     end,
 })
