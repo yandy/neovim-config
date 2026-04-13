@@ -119,7 +119,7 @@ vim.api.nvim_create_autocmd("FileType", {
                 }
             }
             -- this allow us to handle launch.json configurations
-            -- which specify type as "node" or "chrome" or "msedge"
+            -- which specify type as "node" or "msedge"
             dap.adapters[adapterType] = function(cb, config)
                 local nativeAdapter = dap.adapters[pwaType]
 
@@ -156,7 +156,7 @@ vim.api.nvim_create_autocmd("FileType", {
                     name = "cmd",
                     command = function()
                         return vim.fn.input('command: ', "bun ")
-                    end
+                    end,
                 },
                 {
                     type = "pwa-msedge",

@@ -56,6 +56,8 @@ sudo pacman -S neovim lazygit wl-clipboard luarocks tree-sitter-grammars lua-lan
 `<c-i>` Go to [count] newer cursor position in jump list
 `]b` next buffer
 `[b` prev buffer
+`<c-w>w` cycle window
+`<c-w>h`/`<c-w>j`/`<c-w>k`/`<c-w>l` switch to left/down/up/right window
 
 #### snacks
 

@@ -1,6 +1,7 @@
 #/bin/sh
 
 vendor_root="$(pwd)/vendor"
+mkdir -p $vendor_root
 
 debugjs(){
   version="v1.112.0"
