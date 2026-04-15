@@ -7,13 +7,12 @@
 git clone https://github.com/yandy/neovim-config.git ~/.config/nvim
 
 # install neccessary tools/packages
-
-bun add -g typescript-language-server typescript @tailwindcss/language-server
-uv tool install basedpyright debugpy
-sudo pacman -S neovim lazygit wl-clipboard luarocks tree-sitter-grammars lua-language-server lldb
+sudo pacman -S neovim wl-clipboard luarocks lldb lazygit tree-sitter-grammars
 
 # invoke nvim and wait for install completion
-
+nvim
+# install mason pkgs
+~/.config/nvim/mason-install
 ```
 ## usage
 

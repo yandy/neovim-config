@@ -2,6 +2,7 @@ require("conf")
 
 require("plugins.ui")
 require("plugins.lsp")
+require("plugins.mason")
 require("plugins.snacks")
 require("plugins.bufferline")
 require("plugins.cmp")

@@ -2,14 +2,6 @@ vim.pack.add({
     { src = "https://github.com/neovim/nvim-lspconfig" },
 })
 
-vim.lsp.enable("lua_ls")
-vim.lsp.enable("clangd")
-vim.lsp.enable('basedpyright')
-vim.lsp.enable('ts_ls')
-vim.lsp.enable('rust_analyzer')
-vim.lsp.enable('tailwindcss')
-
-
 vim.api.nvim_create_autocmd("LspAttach", {
     group = vim.api.nvim_create_augroup("SetupLSP", {}),
     callback = function(event)

@@ -31,7 +31,7 @@ vim.api.nvim_create_autocmd("FileType", {
 
         -- language configs
         -- python
-        require("dap-python").setup("uv")
+        require("dap-python").setup("debugpy-adapter")
         table.insert(dap.configurations.python, {
             type = 'python',
             request = 'launch',
@@ -94,8 +94,8 @@ vim.api.nvim_create_autocmd("FileType", {
                 host = "localhost",
                 port = "${port}",
                 executable = {
-                    command = "bun",
-                    args = { vim.fn.stdpath("config") .. "/vendor/js-debug/src/dapDebugServer.js", "${port}" },
+                    command = "js-debug-adapter",
+                    args = { "${port}", }
                 }
             }
             -- this allow us to handle launch.json configurations
