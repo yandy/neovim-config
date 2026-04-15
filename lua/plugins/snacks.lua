@@ -4,6 +4,7 @@ vim.pack.add({
 
 require("snacks").setup({
     bigfile = {},
+    bufdelete = {},
     picker = {
         ui_select = true,
         matcher = { frecency = true, cwd_bonus = true, history_bonus = true },
@@ -58,3 +59,6 @@ vim.keymap.set("n", "<leader>lS", function() Snacks.picker.lsp_workspace_symbols
     { desc = "LSP Workspace Symbols" })
 vim.keymap.set("n", "<leader>ld", function() Snacks.picker.diagnostics() end, { desc = "document diagnostics" })
 vim.keymap.set("n", "<leader>lD", function() Snacks.picker.diagnostics_buffer() end, { desc = "workspace diagnostics" })
+
+vim.keymap.set("n", "<leader>bd", function() Snacks.bufdelete.delete() end, { desc = "delete current buffer" })
+vim.keymap.set("n", "<leader>bc", function() Snacks.bufdelete.other() end, { desc = "clean other buffers" })
