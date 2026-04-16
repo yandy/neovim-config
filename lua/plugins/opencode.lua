@@ -39,3 +39,7 @@ vim.keymap.set("v", "<leader>oa", function()
 end)
 vim.keymap.set({ "n", "v" }, "<leader>ox", function() opencode.select() end,
     { desc = "Execute opencode action…" })
+
+vim.keymap.set("t", "<a-c-b>", function() opencode.command("session.page.up") end, { desc = "Scroll opencode up" })
+vim.keymap.set("t", "<a-c-f>", function() opencode.command("session.page.down") end,
+    { desc = "Scroll opencode down" })

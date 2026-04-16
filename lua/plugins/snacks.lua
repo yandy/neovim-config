@@ -38,7 +38,7 @@ vim.keymap.set({ "n", "t" }, "<c-`>", function() Snacks.terminal.toggle() end, {
 
 vim.keymap.set("n", "<leader>G", function() Snacks.lazygit() end, { desc = "Toggle lazygit" })
 
-vim.keymap.set("n", "<leader><space>", function() Snacks.picker.smart() end, { desc = "Smart find files" })
+vim.keymap.set("n", "<leader><space>", function() Snacks.picker.smart() end, { desc = "Smart find" })
 vim.keymap.set("n", "<leader>/", function() Snacks.picker.grep() end, { desc = "grep files" })
 vim.keymap.set("n", "<leader>ff", function() Snacks.picker.files() end, { desc = "find files" })
 vim.keymap.set("n", "<leader>fb", function() Snacks.picker.buffers() end, { desc = "find buffers" })
@@ -51,12 +51,12 @@ vim.keymap.set("n", "<leader>fc", function() Snacks.picker.files({ cwd = vim.fn.
     { desc = "find config file" })
 
 vim.keymap.set("n", "gd", function() Snacks.picker.lsp_definitions() end, { desc = "goto definition" })
-vim.keymap.set("n", "gr", function() Snacks.picker.lsp_references() end, { desc = "references", nowait = true })
+vim.keymap.set("n", "gr", function() Snacks.picker.lsp_references() end, { desc = "goto references", nowait = true })
 vim.keymap.set("n", "gi", function() Snacks.picker.lsp_implementations() end, { desc = "goto implementation" })
 vim.keymap.set("n", "gy", function() Snacks.picker.lsp_type_definitions() end, { desc = "goto t[y]pe definition" })
 vim.keymap.set("n", "<leader>ls", function() Snacks.picker.lsp_symbols() end, { desc = "LSP current buffer symbols" })
 vim.keymap.set("n", "<leader>lS", function() Snacks.picker.lsp_workspace_symbols() end,
-    { desc = "LSP Workspace Symbols" })
+    { desc = "LSP workspace symbols" })
 vim.keymap.set("n", "<leader>ld", function() Snacks.picker.diagnostics() end, { desc = "document diagnostics" })
 vim.keymap.set("n", "<leader>lD", function() Snacks.picker.diagnostics_buffer() end, { desc = "workspace diagnostics" })
 
