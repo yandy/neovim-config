@@ -7,10 +7,14 @@
 git clone https://github.com/yandy/neovim-config.git ~/.config/nvim
 
 # install neccessary tools/packages
-sudo pacman -S neovim wl-clipboard luarocks lldb lazygit tree-sitter-grammars
+sudo pacman -S neovim wl-clipboard luarocks lldb lazygit
 
 # invoke nvim and wait for install completion
 nvim
+
+# treesitter
+## make sure installed tar, curl, gcc, cargo
+cargo install tree-sitter-cli
 ```
 
 ## usage
@@ -63,6 +67,8 @@ line number specified with:
 - `<c-o>` Go to \[count\] Older cursor position in jump list
 - `<c-i>` Go to \[count\] newer cursor position in jump list
 - `<c-]>` follow the links in help text
+- `gx` Opens the current filepath, URL (decided by `<cfile>`, 'isfname'), or `LSP` "documentLink" at cursor using the system default handler.
+- `{Visual}gx` Opens the selected text using the system default handler.
 
 **deleting** `:h deleting`
 - `x` Delete a character under the cursor

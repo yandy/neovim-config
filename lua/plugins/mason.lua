@@ -6,15 +6,16 @@ vim.pack.add({
 require("mason").setup()
 require('mason-auto-install').setup({
     packages = {
-        "lua-language-server",
         { "clangd", version = "22.1.0" },
         "basedpyright",
         "typescript-language-server",
         "rust-analyzer",
+        "lua-language-server",
+        "bash-language-server",
         "tailwindcss-language-server",
+        "marksman",
         "debugpy",
-        "js-debug-adapter",
-        "marksman"
+        "js-debug-adapter"
     },
 })
 require("mason-lspconfig").setup()
