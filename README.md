@@ -228,6 +228,10 @@ For each line in \[range\] replace a match of {pattern} with {string}.
 - `<leader>mp` toggle markdown preview
 - `<leader>ms` toggle markdown preview in `splitview`.
 
+**img-clip** `:help img-clip.nvim-img-clip.nvim-configuration`
+- `<leader>P` Paste image from system clipboard
+- *DRAG AND DROP* drag images from the web browser or file explorer into the terminal to automatically embed them, in `normal` mode.
+
 **opencode** [docs](https://github.com/nickjvandyke/opencode.nvim)
 - `<c-.>` toggle opencode terminal
 - `<leader>oa` open ask window with current buffer reference(`@buffer`)

@@ -13,6 +13,10 @@
       "rev": "426dbebe06b5c69fd846ceb17b42e12f890aedf1",
       "src": "https://github.com/catppuccin/nvim"
     },
+    "img-clip.nvim": {
+      "rev": "b6ddfb97b5600d99afe3452d707444afda658aca",
+      "src": "https://github.com/hakonharnes/img-clip.nvim"
+    },
     "markview.nvim": {
       "rev": "5a890277ba7edd7823d20f4d0525132d277aea9a",
       "src": "https://github.com/OXY2DEV/markview.nvim"
