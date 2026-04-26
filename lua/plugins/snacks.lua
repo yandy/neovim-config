@@ -29,7 +29,16 @@ require("snacks").setup({
     input = {},
     terminal = {},
     lazygit = {},
-    image = {},
+    image = {
+        doc = {
+            ---@param lang string tree-sitter language
+            ---@param type snacks.image.Type image type
+            conceal = function(lang, type) return type == "math" end
+        },
+        math = {
+            latex = { font_size = "large" }
+        }
+    },
 })
 
 vim.keymap.set("n", "<leader>e", function() Snacks.explorer.open() end, { desc = "File Explorer" })

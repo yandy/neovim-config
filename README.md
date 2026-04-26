@@ -12,9 +12,11 @@ sudo pacman -S neovim wl-clipboard luarocks lldb lazygit
 # invoke nvim and wait for install completion
 nvim
 
-# treesitter
+# for markview
 ## make sure installed tar, curl, gcc, cargo
 cargo install tree-sitter-cli
+uv tool install mmdc
+sudo pacman -S tectonic
 ```
 
 ## usage
