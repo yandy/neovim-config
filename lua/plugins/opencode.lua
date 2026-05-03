@@ -6,14 +6,16 @@ local terminal = require("snacks.terminal")
 ---@type snacks.terminal.Opts
 local snacks_terminal_opts = {
     win = {
-        position = 'right',
-        width = 0.7,
-        enter = false,
+        enter = true,
         on_win = function(self)
             -- Set up keymaps and cleanup for an arbitrary terminal
             require('opencode.terminal').setup(self.win)
         end,
     },
+    env = {
+        OPENCODE_ENABLE_EXA = true,
+        OPENCODE_EXPERIMENTAL_LSP_TOOL = true
+    }
 }
 local opencode_cmd = 'opencode --port'
 ---@type opencode.Opts

@@ -6,14 +6,16 @@ vim.pack.add({
 require("mason").setup()
 require('mason-auto-install').setup({
     packages = {
+        "ast-grep",
         { "clangd", version = "22.1.0" },
         "basedpyright",
         "typescript-language-server",
-        "rust-analyzer",
-        "lua-language-server",
-        "bash-language-server",
+        "biome",
         "tailwindcss-language-server",
         "marksman",
+        "rust-analyzer",
+        "bash-language-server",
+        "lua-language-server",
         "debugpy",
         "js-debug-adapter"
     },
