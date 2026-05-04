@@ -88,3 +88,21 @@ vim.opt.foldlevelstart = 99
 vim.opt.foldenable = true
 vim.opt.foldmethod = 'syntax'
 vim.opt.fillchars = { eob = " ", fold = " ", foldopen = "", foldsep = " ", foldclose = "" }
+
+-- Trim trailing whitespace and excess final newlines on save (skip markdown for trailing whitespace)
+vim.api.nvim_create_autocmd("BufWritePre", {
+    pattern = "*",
+    callback = function()
+        if vim.bo.binary or not vim.bo.modifiable then
+            return
+        end
+        local save_cursor = vim.fn.getpos(".")
+        -- Remove trailing whitespace (skip markdown: double trailing spaces = <br>)
+        if vim.bo.filetype ~= "markdown" then
+            vim.cmd([[silent! keepjumps keeppatterns %s/\s\+$//e]])
+        end
+        -- Remove excess trailing blank lines at EOF, keep one final newline
+        vim.cmd([[silent! keepjumps keeppatterns %s/\n\+\%$/\n/e]])
+        vim.fn.setpos(".", save_cursor)
+    end,
+})
