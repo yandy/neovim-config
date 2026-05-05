@@ -213,6 +213,7 @@ For each line in \[range\] replace a match of {pattern} with {string}.
 
 **snacks.terminal**
 - ```<c-`>``` open terminal
+- ```<c-s-`>``` new terminal
 
 **snacks.lazygit**
 - `<leader>G` open lazygit
@@ -253,5 +254,4 @@ Supported languages: Python, C/C++, JavaScript, TypeScript
 - `<leader>dO` / `<S-F11>` step out
 - `<leader>dQ` / `<S-F5>` terminate session
 - `<leader>dB>` set conditional breakpoint (with input prompt)
-- `<leader>du>` toggle dapui
-
+- `<leader>du>` toggle dapui 

@@ -44,6 +44,7 @@ require("snacks").setup({
 vim.keymap.set("n", "<leader>e", function() Snacks.explorer.open() end, { desc = "File Explorer" })
 
 vim.keymap.set({ "n", "t" }, "<c-`>", function() Snacks.terminal.toggle() end, { desc = "Toggle Terminal" })
+vim.keymap.set({ "n", "t" }, "<c-s-`>", function() Snacks.terminal.open() end, { desc = "New Terminal" })
 
 vim.keymap.set("n", "<leader>G", function() Snacks.lazygit() end, { desc = "Toggle lazygit" })
 
