@@ -254,4 +254,4 @@ Supported languages: Python, C/C++, JavaScript, TypeScript
 - `<leader>dO` / `<S-F11>` step out
 - `<leader>dQ` / `<S-F5>` terminate session
 - `<leader>dB>` set conditional breakpoint (with input prompt)
-- `<leader>du>` toggle dapui 
+- `<leader>du>` toggle dapui
