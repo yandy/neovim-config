@@ -102,7 +102,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
             vim.cmd([[silent! keepjumps keeppatterns %s/\s\+$//e]])
         end
         -- Remove excess trailing blank lines at EOF, keep one final newline
-        vim.cmd([[silent! keepjumps keeppatterns %s/\n\+\%$/\n/e]])
+        vim.cmd([[silent! keepjumps keeppatterns %s/\n\+\%$//e]])
         vim.fn.setpos(".", save_cursor)
     end,
 })
