@@ -135,7 +135,9 @@ For each line in \[range\] replace a match of {pattern} with {string}.
 
 **folding**
 - `zR` open all folds
+- `zr` open 1-level folds
 - `zM` close all folds
+- `zm` close 1-level folds
 - `za` toggle fold
 
 **window** `:h window`
