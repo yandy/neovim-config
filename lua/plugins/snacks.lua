@@ -9,18 +9,12 @@ require("snacks").setup({
         ui_select = true,
         matcher = { frecency = true, cwd_bonus = true, history_bonus = true },
         formatters = { icon_width = 3 },
-        --- for opencode
-        actions = {
-            opencode_send = function(...) return require("opencode").snacks_picker_send(...) end,
-        },
         win = {
             input = {
                 keys = {
                     ["<c-t>"] = { "tab", mode = { "i", "n" } },
                     ["<c-e>"] = { "edit_split", mode = { "i", "n" } },
                     ["<c-o>"] = { "edit_vsplit", mode = { "i", "n" } },
-                    --- for opencode
-                    ["<a-o>"] = { "opencode_send", mode = { "n", "i" } },
                 }
             }
         }

@@ -1,5 +1,5 @@
 vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+vim.g.maplocalleader = '\\'
 vim.g.have_nerd_font = true
 vim.g.markdown_folding = 1
 vim.g.simple_indicator_on = false
@@ -78,7 +78,7 @@ vim.opt.scrolloff = 5
 -- Win
 vim.opt.winborder = 'single'
 
--- Required for opencode `opts.events.reload`
+-- Required for agentic `opts.events.reload`
 vim.opt.autoread = true
 
 -- folding

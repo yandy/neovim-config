@@ -1,5 +1,9 @@
 {
   "plugins": {
+    "agentic.nvim": {
+      "rev": "b6529a4749ee72ba64e40401e4b25d0ef7cdb81e",
+      "src": "https://github.com/carlos-algms/agentic.nvim"
+    },
     "blink.cmp": {
       "rev": "78336bc89ee5365633bcf754d93df01678b5c08f",
       "src": "https://github.com/saghen/blink.cmp",
@@ -64,10 +68,6 @@
     "nvim-web-devicons": {
       "rev": "c72328a5494b4502947a022fe69c0c47e53b6aa6",
       "src": "https://github.com/nvim-tree/nvim-web-devicons"
-    },
-    "opencode.nvim": {
-      "rev": "b3cdd746a5ca321b6884badefa0ba22c86c3d45e",
-      "src": "https://github.com/nickjvandyke/opencode.nvim"
     },
     "snacks.nvim": {
       "rev": "ad9ede6a9cddf16cedbd31b8932d6dcdee9b716e",
