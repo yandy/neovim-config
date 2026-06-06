@@ -229,8 +229,8 @@ For each line in \[range\] replace a match of {pattern} with {string}.
 - `<c-b>` scroll documentation up
 
 **markview** `:help markview.nvim`
-- `<leader>mp` toggle markdown preview
-- `<leader>ms` toggle markdown preview in `splitview`.
+- `<leader>mt` toggles markdown render.
+- `<leader>mp` preview markdown by side
 
 **img-clip** `:help img-clip.nvim-img-clip.nvim-configuration`
 - `<leader>P` Paste image from system clipboard

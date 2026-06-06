@@ -27,7 +27,7 @@ require("snacks").setup({
         doc = {
             ---@param lang string tree-sitter language
             ---@param type snacks.image.Type image type
-            conceal = function(lang, type) return type == "math" end
+            conceal = function(lang, type) return false end
         },
         math = {
             latex = { font_size = "large" }

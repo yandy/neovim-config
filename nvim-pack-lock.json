@@ -21,10 +21,6 @@
       "rev": "b6ddfb97b5600d99afe3452d707444afda658aca",
       "src": "https://github.com/hakonharnes/img-clip.nvim"
     },
-    "markview.nvim": {
-      "rev": "5a890277ba7edd7823d20f4d0525132d277aea9a",
-      "src": "https://github.com/OXY2DEV/markview.nvim"
-    },
     "mason-auto-install.nvim": {
       "rev": "fd76cea6bbac98726c0c763deea3c449adf50daf",
       "src": "https://github.com/owallb/mason-auto-install.nvim"
@@ -68,6 +64,10 @@
     "nvim-web-devicons": {
       "rev": "c72328a5494b4502947a022fe69c0c47e53b6aa6",
       "src": "https://github.com/nvim-tree/nvim-web-devicons"
+    },
+    "render-markdown.nvim": {
+      "rev": "5adf0895310c1904e5abfaad40a2baad7fe44a07",
+      "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
     },
     "snacks.nvim": {
       "rev": "ad9ede6a9cddf16cedbd31b8932d6dcdee9b716e",

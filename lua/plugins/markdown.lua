@@ -1,6 +1,6 @@
 vim.pack.add({
     { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
-    { src = "https://github.com/OXY2DEV/markview.nvim" },
+    { src = "https://github.com/MeanderingProgrammer/render-markdown.nvim" },
 })
 
 require('nvim-treesitter').install({ 'comment', 'html', 'latex', 'typst', 'yaml' })
@@ -8,12 +8,21 @@ require('nvim-treesitter').install({ 'comment', 'html', 'latex', 'typst', 'yaml'
 require('nvim-treesitter').install({ 'python', 'cpp', 'javascript', 'typescript', 'rust', 'bash' })
 require('nvim-treesitter').install({ 'css', 'scss', 'svelte', 'tsx', 'vue' })
 
-require("markview").setup({
-    preview = { icon_provider = "devicons" },
-    latex = { enable = false }
-});
+require('render-markdown').setup({
+    preset = 'obsidian',
+    anti_conceal = { enabled = false },
+    file_types = { "markdown", "md", "AgenticChat" },
+    completions = {
+        blink = { enabled = true },
+        lsp = { enabled = true }
+    },
+    code = {
+        border = 'thick',
+    },
+    latex = { enabled = false }
+})
 
-vim.api.nvim_set_keymap("n", "<leader>mp", "<CMD>Markview Toggle<CR>",
-    { desc = "toggles preview." });
-vim.api.nvim_set_keymap("n", "<leader>ms", "<CMD>Markview splitToggle<CR>",
-    { desc = "toggles preview in `splitview`." });
+vim.api.nvim_set_keymap("n", "<leader>mt", "<CMD>RenderMarkdown buf_toggle<CR>",
+    { desc = "toggles markdown render." });
+vim.api.nvim_set_keymap("n", "<leader>mp", "<CMD>RenderMarkdown preview<CR>",
+    { desc = "preview markdown by side" });
