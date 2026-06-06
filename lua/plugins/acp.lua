@@ -10,7 +10,8 @@ opts = {
             env = {
                 OPENCODE_ENABLE_EXA = 1,
                 OPENCODE_EXPERIMENTAL_LSP_TOOL = 1
-            }
+            },
+            default_thought_level = "max"
         }
     },
     windows = {
@@ -22,12 +23,23 @@ local agentic = require("agentic")
 
 agentic.setup(opts)
 
-vim.keymap.set({ "n", "t", "v", "i" }, "<c-.>", function() agentic.toggle() end, { desc = 'toggle Agentic Chat' })
-vim.keymap.set({ "n", }, "<esc>", function() agentic.stop_generation() end,
-    { desc = 'interrupt generation' })
+vim.keymap.set({ "n", "v", "i" }, "<c-.>", function() agentic.toggle() end, { desc = 'toggle agentic chat' })
 vim.keymap.set({ "n", "v" }, "<c-'>", function() agentic.add_selection_or_file_to_context() end,
-    { desc = 'Add file or selection to Agentic to Context' })
+    { desc = 'add file or selection to agentic context' })
 vim.keymap.set({ "n", "v" }, "<localleader>n", function() agentic.new_session() end,
-    { desc = 'New Agentic Session' })
+    { desc = 'new agentic session' })
 vim.keymap.set({ "n", "v" }, "<localleader>l", function() agentic.restore_session() end,
-    { desc = 'Agentic Restore session' })
+    { desc = 'list agentic session for restore' })
+
+local esc_timer = vim.uv.new_timer()
+vim.keymap.set(
+    "n", "<esc>", function()
+        if esc_timer:is_active() then
+            esc_timer:stop()
+            agentic.stop_generation()
+        else
+            esc_timer:start(200, 0, function() end)
+            return "<esc>"
+        end
+    end,
+    { expr = true, noremap = true, desc = 'double esc to interrupt generation' })

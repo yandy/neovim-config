@@ -176,8 +176,8 @@ For each line in \[range\] replace a match of {pattern} with {string}.
 - `<leader>bd` close current buffer
 
 **snacks** `:h snacks`
-- `n` `<a-h>` toggle hidden files
-- `n` `<a-i>` toggle ignored files
+- `<a-h>` toggle hidden files
+- `<a-i>` toggle ignored files
 
 **snacks.picker**`:h snacks-picker`
 - `<leader><space>` smart find
@@ -236,14 +236,23 @@ For each line in \[range\] replace a match of {pattern} with {string}.
 - `<leader>P` Paste image from system clipboard
 - *DRAG AND DROP* drag images from the web browser or file explorer into the terminal to automatically embed them, in `normal` mode.
 
-**opencode** [docs](https://github.com/nickjvandyke/opencode.nvim)
-- `<c-.>` toggle opencode terminal
-- `<leader>oa` open ask window with current buffer reference(`@buffer`)
-- `{Visual}<leader>oa` open ask window with highlighted text/lines reference(`@this`)
-- `[Visual]<leader>ox` execute opencode action…
-- `{Terminal}<a-c-c>` clear prompt
-- `{Terminal}<a-c-f>` scroll opencode page down
-- `{Terminal}<a-c-b>` scroll opencode page up
+**agentic.nvim** [docs](https://github.com/carlos-algms/agentic.nvim)
+- `<c-.>` toggle agentic widget
+- `q` close agentic widget
+- `<s-tab>` change mode (eg. plan, build)
+- `<localLeader>s` switch acp provider
+- `<localLeader>m` switch model
+- `<localLeader>t` switch think level
+- `<c-s>` submit prompt
+- `<c-'>` add file or selection to agentic context
+- `{Insert}<c-v>`/`<localLeader>p` paste image
+- `<esc><esc>` interrupt generation
+- `<localleader>n` new agentic session
+- `<localleader>l` list agentic session for restore
+- `<a-c-f>` scroll agentic page down
+- `<a-c-b>` scroll agentic page up
+- `]]` next heading
+- `[[` previous heading
 
 **debug** `:help dap.txt`, `:help dap-launch.json`
 Supported languages: Python, C/C++, JavaScript, TypeScript
