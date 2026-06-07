@@ -15,7 +15,7 @@ opts = {
         }
     },
     windows = {
-        width = "60%",
+        width = "40%",
     }
 }
 
