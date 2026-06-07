@@ -5,6 +5,7 @@ vim.pack.add({
 
 require('nvim-treesitter').install({ 'comment', 'html', 'latex', 'typst', 'yaml' })
 -- for code block highlight
+require('nvim-treesitter').install({ 'c', 'lua', 'markdown', 'vim', 'vimdoc', 'query' })
 require('nvim-treesitter').install({ 'python', 'cpp', 'javascript', 'typescript', 'rust', 'bash' })
 require('nvim-treesitter').install({ 'css', 'scss', 'svelte', 'tsx', 'vue' })
 

@@ -3,7 +3,7 @@ vim.pack.add({
 })
 
 vim.api.nvim_create_autocmd("LspAttach", {
-    group = vim.api.nvim_create_augroup("SetupLSP", {}),
+    group = vim.api.nvim_create_augroup("SetupLSP", { clear = true }),
     callback = function(event)
         local client = assert(vim.lsp.get_client_by_id(event.data.client_id))
 
@@ -25,7 +25,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
         vim.keymap.set("n", "<a-s-f>", vim.lsp.buf.format)
         if client.server_capabilities.documentFormattingProvider then
             vim.api.nvim_create_autocmd("BufWritePre", {
-                pattern = "*",
+                buffer = event.buf,
                 callback = function()
                     vim.lsp.buf.format({ async = false })
                 end,

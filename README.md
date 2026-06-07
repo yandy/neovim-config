@@ -238,6 +238,7 @@ For each line in \[range\] replace a match of {pattern} with {string}.
 
 **agentic.nvim** [docs](https://github.com/carlos-algms/agentic.nvim)
 - `<c-.>` toggle agentic widget
+- `<localleader>r` rotate agentic chat layout
 - `q` close agentic widget
 - `<s-tab>` change mode (eg. plan, build)
 - `<localLeader>s` switch acp provider
