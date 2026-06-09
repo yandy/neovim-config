@@ -246,7 +246,7 @@ For each line in \[range\] replace a match of {pattern} with {string}.
 - `<localLeader>t` switch think level
 - `<c-s>` submit prompt
 - `<c-'>` add file or selection to agentic context
-- `<c-">` add all buffer diagnostics to agentic
+- `<c-/>` add all buffer diagnostics to agentic
 - `{Insert}<c-v>`/`<localLeader>p` paste image
 - `<esc><esc>` interrupt generation
 - `<localleader>n` new agentic session

@@ -27,7 +27,7 @@ agentic.setup(opts)
 vim.keymap.set({ "n", "v", "i" }, "<c-.>", function() agentic.toggle() end, { desc = 'toggle agentic chat' })
 vim.keymap.set({ "n", "v" }, "<c-'>", function() agentic.add_selection_or_file_to_context() end,
     { desc = 'add file or selection to agentic context' })
-vim.keymap.set({ "n", "v" }, '<c-">', function() agentic.add_buffer_diagnostics() end,
+vim.keymap.set({ "n", "v" }, "<c-/>", function() agentic.add_buffer_diagnostics() end,
     { desc = 'add all buffer diagnostics to agentic' })
 
 vim.api.nvim_create_autocmd("FileType", {
