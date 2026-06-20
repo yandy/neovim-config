@@ -23,14 +23,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
         -- [formatting]
         vim.keymap.set("n", "<a-s-f>", vim.lsp.buf.format)
-        if client.server_capabilities.documentFormattingProvider then
-            vim.api.nvim_create_autocmd("BufWritePre", {
-                buffer = event.buf,
-                callback = function()
-                    vim.lsp.buf.format({ async = false })
-                end,
-            })
-        end
 
         -- [override defaults]
         vim.keymap.set("n", "gri", function() Snacks.picker.lsp_implementations() end, { desc = "goto implementation" })
