@@ -4,8 +4,14 @@ vim.pack.add({
 
 --- @type agentic.PartialUserConfig
 opts = {
-    provider = "opencode-acp",
+    provider = "pi-acp",
     acp_providers = {
+        ["pi-acp"] = {
+            env = {
+                PI_CODING_AGENT_DIR = "~/.pi/agent-code",
+            },
+            default_mode = "xhigh"
+        },
         ["opencode-acp"] = {
             env = {
                 OPENCODE_ENABLE_EXA = 1,
