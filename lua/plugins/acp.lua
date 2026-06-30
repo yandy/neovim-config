@@ -8,16 +8,9 @@ opts = {
     acp_providers = {
         ["pi-acp"] = {
             env = {
-                PI_CODING_AGENT_DIR = "~/.pi/agent-code",
+                PI_CODING_AGENT_DIR = "~/.pi/agent-mate",
             },
-            default_thought_level = "xhigh"
-        },
-        ["opencode-acp"] = {
-            env = {
-                OPENCODE_ENABLE_EXA = 1,
-                OPENCODE_EXPERIMENTAL_LSP_TOOL = 1
-            },
-            default_thought_level = "xhigh"
+            default_thought_level = "high"
         }
     },
     windows = {
