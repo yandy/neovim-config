@@ -9,7 +9,7 @@ require('mason-auto-install').setup({
         "ast-grep",
         { "clangd", version = "22.1.0" },
         "basedpyright",
-        "typescript-language-server",
+        "tsc",
         "biome",
         "tailwindcss-language-server",
         "marksman",
