@@ -268,3 +268,90 @@ Supported languages: Python, C/C++, JavaScript, TypeScript
 - `<leader>dQ` / `<S-F5>` terminate session
 - `<leader>dB>` set conditional breakpoint (with input prompt)
 - `<leader>du>` toggle dapui
+
+## plugin management (vim.pack)
+
+Plugins are managed by Neovim's built-in `vim.pack` (`:h vim.pack`, see `lua/plugins/*.lua`).
+Plugins live in `~/.local/share/nvim/site/pack/core/opt`, and the resolved revisions are
+recorded in `nvim-pack-lock.json` at the repo root (keep it under version control).
+
+Startup only *aligns* state, it never upgrades: plugins listed in `nvim-pack-lock.json` but
+missing on disk are installed at the lockfile revision, while plugins already on disk are
+left untouched (no `git fetch`, no `git checkout`, current revision is not even checked).
+Upgrading is always an explicit action.
+
+### upgrade plugins (all)
+
+```vim
+:lua vim.pack.update()
+```
+
+`vim.pack.update()` downloads new changes from every source and computes the newest revision
+matching each plugin's `version` constraint (or the default branch when `version` is unset).
+A confirmation buffer opens in a separate tabpage:
+
+- changes to be applied are prefixed with `>`, reversions with `<`
+- `:write` confirms and applies the updates
+- `:quit` discards them
+- `]]`/`[[` navigate between plugin sections, `gO` lists them (`vim.lsp.buf.document_symbol()`)
+- `gra` offers plugin-specific code actions, e.g. "update", "skip updating", "delete"
+- `:lua vim.pack.update(nil, { force = true })` skips the confirmation buffer
+
+Every applied update is also logged to `nvim-pack.log` under the "log" standard path
+(`~/.local/state/nvim/nvim-pack.log`). Run `:restart` afterwards to start using the new code.
+
+Upgrade only a subset, and inspect the current state without downloading anything:
+
+```vim
+:lua vim.pack.update({ 'snacks.nvim', 'blink.cmp' })
+:lua vim.pack.update(nil, { offline = true })
+```
+
+### synchronize across devices
+
+`nvim-pack-lock.json` is the source of truth for exact revisions, so pushing it is what makes
+another device reproduce the same plugin set.
+
+On the device that made the changes:
+
+```sh
+git add nvim-pack-lock.json && git commit -m 'chore: bump plugins' && git push
+```
+
+On the other device:
+
+1. `git pull`, then `:restart` — plugins present in the lockfile but not yet on disk are
+   installed directly at the lockfile revision.
+2. Pin every already-installed plugin to the lockfile revision:
+
+   ```vim
+   :lua vim.pack.update(nil, { target = 'lockfile' })
+   ```
+
+   Read the confirmation buffer and `:write` to apply. With `target = 'lockfile'` the target
+   revision comes from the lockfile instead of "newest matching `version`", which is what
+   keeps both devices identical (also the way to revert a plugin after an update).
+3. Remove plugins that were dropped from the config and are therefore no longer in the
+   lockfile — they are not deleted automatically. Find them with the lockfile diff, then:
+
+   ```vim
+   :lua vim.pack.del({ 'plugin-name' })
+   ```
+
+   `vim.pack.get()` returns all managed plugins; filter on `not x.active` to spot leftovers.
+
+Note on `offline`: it skips `git fetch` and only makes sense when the target revision already
+exists locally (e.g. after switching `version` in `lua/plugins/*.lua`, or when reverting).
+Do **not** pass `offline = true` right after `git pull` on a fresh device — the lockfile
+revision may not be in the local object database yet and `git checkout` would fail.
+
+Revert an unwanted update:
+
+```sh
+git checkout HEAD -- nvim-pack-lock.json
+```
+
+```vim
+:restart
+:lua vim.pack.update({ 'plugin-name' }, { offline = true, target = 'lockfile' })
+```
