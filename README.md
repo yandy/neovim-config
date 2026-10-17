@@ -12,10 +12,11 @@ sudo pacman -S neovim wl-clipboard luarocks lldb lazygit
 # invoke nvim and wait for install completion
 nvim
 
-# for markview
+# for markdown render
 ## make sure installed tar, curl, gcc, cargo
 cargo install tree-sitter-cli
-uv tool install mmdc
+npm install -g @mermaid-js/mermaid-cli
+npx puppeteer browsers install chrome-headless-shell
 sudo pacman -S tectonic
 ```
 
