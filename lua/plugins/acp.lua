@@ -7,10 +7,8 @@ opts = {
     provider = "pi-acp",
     acp_providers = {
         ["pi-acp"] = {
-            env = {
-                PI_CODING_AGENT_DIR = "~/.pi/agent-mate",
-            },
-            default_thought_level = "high"
+            command = "npx",
+            args = { "-y", "pi-acp" }
         }
     },
     windows = {
